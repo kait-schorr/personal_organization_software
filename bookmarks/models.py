@@ -1,5 +1,6 @@
 from django.db import models
 from uuid import uuid4
+from django.contrib.auth.models import User
 
 
 class Bookmark(models.Model):
@@ -10,3 +11,6 @@ class Bookmark(models.Model):
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
+
+class PersonalBookmark(Bookmark):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
