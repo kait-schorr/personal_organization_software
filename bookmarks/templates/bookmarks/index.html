@@ -21,6 +21,17 @@
         <![endif]-->
 
     <h1> INSIDE BOOK FOLDER</h1>
+    {% if bookmarks %} Bookmarks:
+
+    <ol>
+        {% for bookmark in bookmarks %}
+        <li>
+            <a href=”{{ bookmark.URL }}”>{{ bookmark.description }}</a>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+
     <script src="" async defer></script>
 </body>
 
