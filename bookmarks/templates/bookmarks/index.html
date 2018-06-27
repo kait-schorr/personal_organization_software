@@ -21,10 +21,19 @@
         <![endif]-->
 
     <h1> INSIDE BOOK FOLDER</h1>
-    {% if bookmarks %} Bookmarks:
+    {% if public_bookmarks %} Public Bookmarks:
 
     <ol>
-        {% for bookmark in bookmarks %}
+        {% for bookmark in public_bookmarks %}
+        <li>
+            <a href=”{{ bookmark.URL }}”>{{ bookmark.description }}</a>
+        </li>
+        {% endfor %}
+    </ol>
+    {% endif %} {% if private_bookmarks %} Private Bookmarks:
+
+    <ol>
+        {% for bookmark in private_bookmarks %}
         <li>
             <a href=”{{ bookmark.URL }}”>{{ bookmark.description }}</a>
         </li>
