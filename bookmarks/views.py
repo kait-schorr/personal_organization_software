@@ -5,9 +5,11 @@ from .models import Bookmark, PersonalBookmark
 
 
 def index(request):
-    context = {'public_bookmarks': Bookmark.objects.all()}
+    pbid = PersonalBookmark.objects.values_list('id')
+    context = {}
+    context['public_bookmarks'] = Bookmark.objects.exclude(id__in=pbid)
     if request.user.is_anonymous:
-        context['private_bokomarks'] = PersonalBookmark.objects.none()
+        context['private_bookmarks'] = PersonalBookmark.objects.none()
     else:
         context['private_bookmarks'] = PersonalBookmark.objects.filter(
             user=request.user)
