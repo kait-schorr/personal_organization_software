@@ -17,11 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from notes.api import NoteViewset, PersonalNoteViewset
+from bookmarks.api import PersonalBookmarkViewset, BookmarkViewset
 
 router = routers.DefaultRouter()
 router.register(r'notes', NoteViewset)
 router.register(r'personal_notes', PersonalNoteViewset,
                 base_name='PersonalNote')
+router.register(r'bookmarks', BookmarkViewset)
+router.register(r'personal_bookmarks', PersonalBookmarkViewset,
+                base_name='PersonalBookmark')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
