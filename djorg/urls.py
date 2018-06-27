@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from notes.api import NoteViewset
+from notes.api import NoteViewset, PersonalNoteViewset
 
 router = routers.DefaultRouter()
 router.register(r'notes', NoteViewset)
+router.register(r'personal_notes', PersonalNoteViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
