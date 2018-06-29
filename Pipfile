@@ -17,6 +17,7 @@ dj-database-url = "*"
 gunicorn = "*"
 "psycopg2-binary" = "*"
 whitenoise = "*"
+requests = "*"
 
 [requires]
 python_version = "3.6"
