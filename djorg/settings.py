@@ -14,6 +14,10 @@ import os
 
 from decouple import config
 
+import dj_database_url
+
+DATABASES = {'default': dj_database_url.config(default=config('DATABASE_URL'))}
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,7 +36,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = ['rest_framework.authtoken','rest_framework', 'bookmarks', 'notes',
+INSTALLED_APPS = ['rest_framework.authtoken', 'rest_framework', 'bookmarks', 'notes',
                   'django.contrib.admin',
                   'django.contrib.auth',
                   'django.contrib.contenttypes',
@@ -41,15 +45,19 @@ INSTALLED_APPS = ['rest_framework.authtoken','rest_framework', 'bookmarks', 'not
                   'django.contrib.staticfiles',
                   ]
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+MIDDLEWARE = ['django.middleware.security.SecurityMiddleware',
+              'whitenoise.middleware.WhiteNoiseMiddleware',
+              'django.middleware.security.SecurityMiddleware',
+              'django.contrib.sessions.middleware.SessionMiddleware',
+              'django.middleware.common.CommonMiddleware',
+              'django.middleware.csrf.CsrfViewMiddleware',
+              'django.contrib.auth.middleware.AuthenticationMiddleware',
+              'django.contrib.messages.middleware.MessageMiddleware',
+              'django.middleware.clickjacking.XFrameOptionsMiddleware',
+              ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 ROOT_URLCONF = 'djorg.urls'
 
