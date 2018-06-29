@@ -20,6 +20,7 @@ DATABASES = {
     'default': dj_database_url.parse(
         config('DATABASE_URL'), conn_max_age=600)
 }
+DATABASES['default'] = dj_database_url.config(default='postgres://...')
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
