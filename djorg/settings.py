@@ -17,7 +17,8 @@ from decouple import config
 
 
 DATABASES = {'default': config('DATABASE_URL')}
-DATABASES['default'] = dj_database_url.config(default='postgres://...')
+DATABASES['default'] = dj_database_url.config(
+    default='postgres://zpgnddlurbxcqc:bc1a8d0e69f4bdee129cdf1395411a34adce53e09decc8baa3dcf4e1bd4cef70@ec2-54-243-61-173.compute-1.amazonaws.com:5432/der90hu59umr4j')
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
