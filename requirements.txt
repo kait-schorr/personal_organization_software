@@ -22,7 +22,7 @@ pyOpenSSL==18.0.0
 python-apt==1.1.0b1+ubuntu0.16.4.1
 python-decouple==3.1
 python-distutils-extra==2.39
-PyYAML==3.11
+PyYAML==5.4
 requests==2.19.1
 screenkey==0.9
 six==1.11.0
